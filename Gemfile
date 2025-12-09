@@ -63,3 +63,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# PgSearch builds named scopes that take advantage of PostgreSQL's full text search.
+gem "pg_search"
