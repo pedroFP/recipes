@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coot_time: 1.5
+  prep_time: 1.5
+  ratings: 1.5
+  title: MyString
+  image: MyString
+  category: MyString
+  author: MyString
+
+two:
+  coot_time: 1.5
+  prep_time: 1.5
+  ratings: 1.5
+  title: MyString
+  image: MyString
+  category: MyString
+  author: MyString
