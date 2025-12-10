@@ -15,7 +15,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_09_204716) do
   enable_extension "pg_catalog.plpgsql"
 
   create_table "recipes", force: :cascade do |t|
-    t.float "coot_time"
+    t.float "cook_time"
     t.float "prep_time"
     t.float "ratings"
     t.string "title"
