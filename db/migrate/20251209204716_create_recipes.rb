@@ -8,7 +8,7 @@ class CreateRecipes < ActiveRecord::Migration[8.0]
       t.string :image
       t.string :category
       t.string :author
-      t.text :ingridients_text
+      t.text :ingredients_text
       t.string :ingredients, array: true, default: []
 
       t.timestamps
