@@ -1,24 +1,35 @@
-# README
+# Start the Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup DataBase
 
-Things you may want to cover:
+`POSTGRES_USER` & `POSTGRES_PASSWORD` have to be the same in both files.
 
-* Ruby version
+```
+# .docker/.env
 
-* System dependencies
+POSTGRES_USER: <postgres_user>
+POSTGRES_PASSWORD: <postgres_password>
+```
 
-* Configuration
+```
+# .env
 
-* Database creation
+POSTGRES_USER: <postgres_user>
+POSTGRES_PASSWORD: <postgres_password>
+POSTGRES_PORT: <postgres_port>
+POSTGRES_HOST: <postgres_host>
+```
 
-* Database initialization
+```
+docker compose -f .docker/docker-compose.database.yml up -d
+```
 
-* How to run the test suite
+```
+rails db:create db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Import Recipes 🍝
 
-* Deployment instructions
-
-* ...
+```
+rails import:recipes
+```
