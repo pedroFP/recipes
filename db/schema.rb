@@ -22,7 +22,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_09_204716) do
     t.string "image"
     t.string "category"
     t.string "author"
-    t.string "ingridients", default: [], array: true
+    t.string "ingredients", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
