@@ -16,6 +16,7 @@ namespace :import do
         "author",
         "ingredients"
       )
+      new_recipe["ingredients_text"] = new_recipe["ingredients"].join(",")
       new_recipe["created_at"] = Time.now.to_s
       new_recipe["updated_at"] = Time.now.to_s
       new_recipe
