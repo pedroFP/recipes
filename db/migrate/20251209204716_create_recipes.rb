@@ -9,7 +9,10 @@ class CreateRecipes < ActiveRecord::Migration[8.0]
       t.string :category
       t.string :author
       t.text :ingredients_text
-      t.string :ingredients, array: true, default: []
+      t.string :ingredients, array: true, default: [], using: "ARRAY[ingredients]"
+
+      t.tsvector :ingredients_tsv
+      t.index :ingredients_tsv, using: :gin
 
       t.timestamps
     end
