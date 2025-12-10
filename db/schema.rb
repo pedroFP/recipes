@@ -24,7 +24,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_09_214518) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.float "coot_time"
+    t.float "cook_time"
     t.float "prep_time"
     t.float "ratings"
     t.string "title"
@@ -32,7 +32,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_09_214518) do
     t.string "category"
     t.string "author"
     t.text "ingridients_text"
-    t.string "ingridients", default: [], array: true
+    t.string "ingredients", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
