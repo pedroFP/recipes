@@ -1,5 +1,8 @@
 <div class="row">
-  <h1><%= @recipe.title %></h1>
+  <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2">
+    <h1 class="mb-2"><%= @recipe.title %></h1>
+    <%= link_to "Back", recipes_path, class: "btn btn-sm btn-light" %>
+  </div>
   <div class="col-md-6 col-lg-6 col-sm-12">
     <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-md-3 mb-2">
       <div>
