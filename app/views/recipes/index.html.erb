@@ -1,8 +1,8 @@
-<h1>Recipes</h1>
+<h1 class="text-sm-center text-md-start">Recipes</h1>
 <% @recipes.in_groups_of(4, false).each do |recipes_group| %>
-  <div class="row mb-4">
+  <div class="row mb-4 justify-content-sm-evenly">
     <% recipes_group.each do |recipe| %>
-      <div class="col-md-3 col-sm-12 col-lg-3">
+      <div class="col-12 col-md-3 d-flex justify-content-center">
         <%= render recipe %>
       </div>
     <% end %>
