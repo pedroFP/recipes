@@ -33,3 +33,9 @@ rails db:create db:migrate
 ```
 rails import:recipes
 ```
+
+## Start the server
+
+```
+bin/dev
+```
