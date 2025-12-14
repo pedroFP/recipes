@@ -16,8 +16,8 @@ module RecipesHelper
 
     tag.span(title: value_in_hours) do
       safe_join([
-        message,
-        content_tag(:i, "", class: "mx-2 bi bi-clock")
+        content_tag(:i, "", class: "me-2 bi bi-clock"),
+        message
       ])
     end
   end
