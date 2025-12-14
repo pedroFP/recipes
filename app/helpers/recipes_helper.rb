@@ -10,15 +10,13 @@ module RecipesHelper
     end
   end
 
-  def display_time(value_in_minutes)
+  def display_time(value_in_minutes, icon: true)
     value_in_hours = (value_in_minutes / 60).round(2)
-    message  = value_in_hours > 1 ? "#{value_in_hours} hours" : "#{value_in_minutes} minutes"
-
+    message  = value_in_hours > 1 ? "#{value_in_hours.round} hours" : "#{value_in_minutes.round} minutes"
+    content = [message]
+    content.unshift(content_tag(:i, "", class: "me-2 bi bi-clock")) if icon
     tag.span(title: value_in_hours) do
-      safe_join([
-        content_tag(:i, "", class: "me-2 bi bi-clock"),
-        message
-      ])
+      safe_join(content)
     end
   end
 end
