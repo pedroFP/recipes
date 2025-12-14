@@ -1,4 +1,5 @@
 <h1 class="text-sm-center text-md-start">Recipes</h1>
+<%= render 'search_bar', searched_recipes: @searched_recipes %>
 <% @recipes.in_groups_of(4, false).each do |recipes_group| %>
   <div class="row mb-4 justify-content-sm-evenly">
     <% recipes_group.each do |recipe| %>
