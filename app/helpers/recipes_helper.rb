@@ -4,7 +4,8 @@ module RecipesHelper
     value_int = value.to_i
     value_int.times { |index| stars[index] = content_tag(:i, "", class: "bi bi-star-fill") }
     stars[value_int] = content_tag(:i, "", class: "bi bi-star-half") if value > value_int
-    tag.span(title: value) do
+
+    tag.span(title: value, data: { controller: "tooltip", "tooltip-target": "tooltip", "bs-toggle": "tooltip", "bs-title": value }) do
       safe_join stars
     end
   end
