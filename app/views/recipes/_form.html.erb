@@ -1,0 +1,51 @@
+<%= form_with(model: recipe, local: true, class: "needs-validation", data: { controller: "ingredients" }) do |f| %>
+  <div class="mb-3">
+    <%= f.label :title, class: "form-label" %>
+    <%= f.text_field :title, class: "form-control", required: true %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :author, class: "form-label" %>
+    <%= f.text_field :author, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :category, class: "form-label" %>
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :image, "Image URL", class: "form-label" %>
+    <%= f.text_field :image, class: "form-control" %>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <%= f.label :prep_time, "Prep Time (minutes)", class: "form-label" %>
+      <%= f.number_field :prep_time, step: 0.1, class: "form-control" %>
+    </div>
+    <div class="col-md-4 mb-3">
+      <%= f.label :cook_time, "Cook Time (minutes)", class: "form-label" %>
+      <%= f.number_field :cook_time, step: 0.1, class: "form-control" %>
+    </div>
+    <div class="col-md-4 mb-3">
+      <%= f.label :ratings, "Ratings", class: "form-label" %>
+      <%= f.number_field :ratings, step: 0.1, class: "form-control" %>
+    </div>
+  </div>
+  <div class="mb-3" >
+    <div id="ingredients-fields" data-ingredients-target="container">
+      <h3>Ingredients</h3>
+      <% recipe.ingredients.each_with_index do |ingredient, index| %>
+        <div class="input-group mb-2" data-ingredients-target="field">
+          <%= f.text_field :ingredients, value: ingredient, name: "recipe[ingredients][]", class: "form-control", placeholder: "Ingredient" %>
+          <button type="button" class="btn btn-danger" data-action="ingredients#remove">Remove</button>
+        </div>
+      <% end %>
+      <% if recipe.ingredients.empty? %>
+        <div class="input-group mb-2" data-ingredients-target="field">
+          <%= f.text_field :ingredients, value: "", name: "recipe[ingredients][]", class: "form-control", placeholder: "Ingredient" %>
+          <button type="button" class="btn btn-danger" data-action="ingredients#remove">Remove</button>
+        </div>
+      </div>
+    <% end %>
+    <button type="button" class="btn btn-primary mb-3" data-action="ingredients#add">Add Ingredient</button>
+  </div>
+  <%= f.submit "Save Recipe", class: "btn btn-success" %>
+<% end %>
