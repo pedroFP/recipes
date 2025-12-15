@@ -1,10 +1,16 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
+  before_action :set_searched_recipes
 
   # GET /recipes or /recipes.json
   def index
-    @pagy, @recipes = pagy(:offset, Recipe.all)
-    @searched_recipes = params.dig(:recipe, :ingredients) || []
+    @recipes = if @searched_recipes.present?
+                 Recipe.search_ingredients(@searched_recipes)
+               else
+                 Recipe.all
+               end
+
+    @pagy, @recipes = pagy(:offset, @recipes)
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -62,6 +68,10 @@ class RecipesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params.expect(:id))
+    end
+
+    def set_searched_recipes
+      @searched_recipes = params.dig(:recipe, :ingredients) || []
     end
 
     # Only allow a list of trusted parameters through.
