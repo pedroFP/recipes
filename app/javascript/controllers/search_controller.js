@@ -12,11 +12,12 @@ export default class extends Controller {
   addIngredient(event) {
     event.preventDefault();
     const ingredient = this.ingredientInputTarget.value;
-    this.submitButtonTarget.classList.remove("d-none");
 
-    if (this.ingredientInputTargets > 0) {
+    if (this.ingredientInputTargets >= 0 || ingredient.length == 0) {
       return;
     }
+
+    this.submitButtonTarget.classList.remove("d-none");
 
     const newIngredientInput = document.createElement("input");
     newIngredientInput.type = "text";
