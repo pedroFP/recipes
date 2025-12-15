@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
   def index
     @recipes = if @searched_recipes.present?
-                 Recipe.search_ingredients(@searched_recipes)
+                 Recipe.search_by_ingredients(@searched_recipes.join(" & "))
                else
                  Recipe.all
                end
