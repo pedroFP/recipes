@@ -1,7 +1,12 @@
 <div class="row">
   <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2">
-    <h1 class="mb-2"><%= @recipe.title %></h1>
-    <%= link_to "Back", recipes_path, class: "btn btn-sm btn-light" %>
+    <h1 class="mb-2">
+      <%= @recipe.title %>
+      <%= link_to edit_recipe_path(@recipe), class:"fs-6 text-warning" do %>
+        <i class="bi bi-pencil-square"></i>
+      <% end %>
+    </h1>
+    <%= link_to "Back", recipes_path, class: "btn btn-light mt-3" %>
   </div>
   <div class="col-md-6 col-lg-6 col-sm-12">
     <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-md-3 mb-2">
@@ -39,7 +44,7 @@
         <div class="d-flex justify-content-between">
           <p>
             <strong>Category:</strong>
-            <%= @recipe.category %>
+            <span class="ms-2 badge text-bg-warning"><%= @recipe.category %></span>
           </p>
         </div>
       </div>

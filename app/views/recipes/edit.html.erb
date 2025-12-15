@@ -1,1 +1,3 @@
-<%= render 'form', recipe: @recipe %>
+<%= render 'form', recipe: @recipe do %>
+  <%= link_to "Back", @recipe, class: "btn btn-light" %>
+<% end %>
