@@ -60,9 +60,9 @@ end
 ```
 
 ```sql
-3.2.0 :001 > Recipe.search_ingredients("milk").count
-  Recipe Count (8.2ms)  SELECT COUNT(*) FROM "recipes" WHERE (ingredients @> ARRAY['milk']::varchar[]) /*application='RecipesApp'*/
- => 1
+3.2.0 :001 > Recipe.search_by_ingredients("milk").count
+  Recipe Count (9.1ms)  SELECT COUNT(*) FROM "recipes" INNER JOIN (SELECT "recipes"."id" AS pg_search_id, (ts_rank(("recipes"."ingredients_tsv"), (to_tsquery('simple', ''' ' || 'milk' || ' ''')), 0)) AS rank FROM "recipes" WHERE (("recipes"."ingredients_tsv") @@ (to_tsquery('simple', ''' ' || 'milk' || ' ''')))) AS pg_search_63b8bd59a482879ad0634d ON "recipes"."id" = pg_search_63b8bd59a482879ad0634d.pg_search_id /*application='RecipesApp'*/
+ => 1817
 ```
 
 **Without**
@@ -71,11 +71,10 @@ end
 class Recipe < ApplicationRecord
   scope :search_ingredients, ->(ingredients) { where("ingredients @> ARRAY[?]::varchar[]", ingredients) }
 end
-
 ```
 
 ```sql
-3.2.0 :001 > Recipe.search_by_ingredients("milk").count
-  Recipe Count (9.1ms)  SELECT COUNT(*) FROM "recipes" INNER JOIN (SELECT "recipes"."id" AS pg_search_id, (ts_rank(("recipes"."ingredients_tsv"), (to_tsquery('simple', ''' ' || 'milk' || ' ''')), 0)) AS rank FROM "recipes" WHERE (("recipes"."ingredients_tsv") @@ (to_tsquery('simple', ''' ' || 'milk' || ' ''')))) AS pg_search_63b8bd59a482879ad0634d ON "recipes"."id" = pg_search_63b8bd59a482879ad0634d.pg_search_id /*application='RecipesApp'*/
- => 1817
+3.2.0 :001 > Recipe.search_ingredients("milk").count
+  Recipe Count (8.2ms)  SELECT COUNT(*) FROM "recipes" WHERE (ingredients @> ARRAY['milk']::varchar[]) /*application='RecipesApp'*/
+ => 1
 ```
