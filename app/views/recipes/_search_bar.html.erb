@@ -17,7 +17,8 @@
         </div>
       </div>
       <div class="col-4">
-        <%= f.button type: "submit", class: "btn btn-secondary btn-sm" do %>
+        <% display = searched_recipes.any? ? "" : "d-none" %>
+        <%= f.button type: "submit", class: "btn btn-secondary btn-sm #{display}", data: { "search-target": "submitButton" } do %>
           Search <i class="bi bi-search"></i>
         <% end %>
       </div>
@@ -25,7 +26,7 @@
     <div data-search-target="ingredients">
       <% searched_recipes.each do |recipe| %>
         <input type="text" name="recipe[ingredients][]" data-search-target="ingredientElement" class="form-control d-none" value="<%= recipe %>">
-        <a type="button" class="badge text-bg-secondary me-2" data-value="<%= recipe %>" data-action="click->search#removeIngredient">
+        <a type="button" class="badge text-bg-secondary me-2 text-decoration-none" data-value="<%= recipe %>" data-action="click->search#removeIngredient">
           <%= recipe %> <i class="bi bi-x"></i>
         </a>
       <% end %>
