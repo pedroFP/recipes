@@ -12,12 +12,9 @@ export default class extends Controller {
   addIngredient(event) {
     event.preventDefault();
     const ingredient = this.ingredientInputTarget.value;
-    const hasIngredients = this.ingredientInputTargets > 0;
-    const submitButton = this.submitButtonTarget;
+    this.submitButtonTarget.classList.remove("d-none");
 
-    this.toggleSubmitButton(submitButton, hasIngredients);
-
-    if (hasIngredients) {
+    if (this.ingredientInputTargets > 0) {
       return;
     }
 
@@ -51,20 +48,5 @@ export default class extends Controller {
     );
     ingridientInput[0].remove();
     event.currentTarget.remove();
-
-    const hasIngredients = this.ingredientInputTargets.length > 0;
-    const submitButton = this.submitButtonTarget;
-
-    this.toggleSubmitButton(submitButton, hasIngredients);
-  }
-
-  toggleSubmitButton(submitButton, hasIngredients) {
-    console.log(submitButton);
-    console.log(submitButton.classList);
-    if (hasIngredients) {
-      submitButton.classList.add("d-none");
-    } else {
-      submitButton.classList.remove("d-none");
-    }
   }
 }
