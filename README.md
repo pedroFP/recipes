@@ -40,9 +40,9 @@ rails import:recipes
 bin/dev
 ```
 
-### Tsvector
+### PosrgreSQL - Tsvector
 
-Comparison when searching with and without tsvector
+Comparison when searching with and without [tsvector](https://www.postgresql.org/docs/current/datatype-textsearch.html)
 
 **With**
 
