@@ -22,16 +22,11 @@
         <% end %>
       </div>
     </div>
-    <div class="input-group mb-2 d-none" data-search-target="ingredients">
+    <div data-search-target="ingredients">
       <% searched_recipes.each do |recipe| %>
-        <input type="text" name="recipe[ingredients][]" class="form-control" value="<%= recipe %>">
-      <% end %>
-    </div>
-    <div class="ingredients gap-3" data-search-target="ingredientsBadges">
-      <% searched_recipes.each do |recipe| %>
-        <a type="button" class="badge text-bg-secondary me-2" data-search-target="badge" data-action="click->search#removeIngredient">
-          <%= recipe %>
-          <i class="bi bi-x"></i>
+        <input type="text" name="recipe[ingredients][]" data-search-target="ingredientElement" class="form-control d-none" value="<%= recipe %>">
+        <a type="button" class="badge text-bg-secondary me-2" data-value="<%= recipe %>" data-action="click->search#removeIngredient">
+          <%= recipe %> <i class="bi bi-x"></i>
         </a>
       <% end %>
     </div>

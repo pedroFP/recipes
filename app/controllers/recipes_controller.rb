@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
   def index
     @pagy, @recipes = pagy(:offset, Recipe.all)
-    @searched_recipes = params[:recipe][:ingredients] || []
+    @searched_recipes = params.dig(:recipe, :ingredients) || []
   end
 
   # GET /recipes/1 or /recipes/1.json
