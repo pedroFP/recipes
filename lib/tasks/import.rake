@@ -1,6 +1,6 @@
 namespace :import do
-  desc "Import data from "
-  task data: :environment do
+  desc "Import recipes from public/recipes-en.json file"
+  task recipes: :environment do
     file_path = Rails.root.join("public", "recipes-en.json")
 
     recipes = JSON.parse(File.read(file_path))

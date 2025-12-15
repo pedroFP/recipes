@@ -1,0 +1,26 @@
+<div class="card mb-2" style="width: 18rem;">
+  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapers.com%2Fimages%2Fhd%2Ffood-4k-spdnpz7bhmx4kv2r.jpg&f=1&nofb=1&ipt=2898319fe61039d342308070b7c0ca205d07fd689da807f26b68be7ff43a270c" class="card-img-top" alt="<%= recipe.image %>">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= recipe.title %> <br>
+    </h5>
+    <p class="card-text">
+      <small class="text-muted">
+        <i class="bi bi-person-circle me-1"></i>
+        <%= recipe.author %>
+      </small>
+    </p>
+    <p class="card-text d-flex justify-content-between">
+      <%= display_stars(recipe.ratings) %>
+      <span class="text-muted"><%= display_time(recipe.total_time) %></span>
+    </p>
+  </div>
+  <div class="card-footer">
+    <p class="card-text d-flex justify-content-between">
+      <span class="badge text-bg-warning"><%= recipe.category %></span>
+      <%= link_to recipe  do %>
+        <i class="bi bi-arrow-up-right-square"></i>
+      <% end %>
+    </p>
+  </div>
+</div>

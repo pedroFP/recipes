@@ -66,3 +66,7 @@ end
 
 # PgSearch builds named scopes that take advantage of PostgreSQL's full text search.
 gem "pg_search"
+gem "dartsass-rails"
+gem "bootstrap", "~> 5.3.3"
+
+gem "pagy", "~> 43.2"
