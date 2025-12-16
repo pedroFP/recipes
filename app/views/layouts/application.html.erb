@@ -17,8 +17,9 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body class="bg-light-subtle">
-    <div class="container">
+  <body class="bg-white">
+    <%= render 'layouts/shared/navbar' %>
+    <div class="container mt-4">
       <%= yield %>
     </div>
   </body>
