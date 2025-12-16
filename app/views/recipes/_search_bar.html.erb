@@ -1,16 +1,17 @@
 <%= form_with url: recipes_path, method: :get do |f| %>
   <div class="mb-3" data-controller="search">
+    <label class="form-label">Search by ingredients</label>
     <div class="row justify-content-between">
       <div class="col-8">
         <div class="input-group input-group-sm mb-2">
           <%= f.text_field :ingredients,
         class: "form-control",
-        placeholder: "Ingredients: milk, eggs, BBQ, flour...",
+        placeholder: "milk, eggs, BBQ, flour...",
         data: {
           "search-target": "ingredientInput",
           action: "keydown.enter->search#addIngredient"
         } %>
-          <button type="button" class="btn btn-success" data-action="search#addIngredient">
+          <button type="button" class="btn btn-secondary" data-action="search#addIngredient">
             +
           </button>
         </div>
@@ -25,7 +26,7 @@
     <div data-search-target="ingredients">
       <% searched_recipes.each do |recipe| %>
         <input type="text" name="recipe[ingredients][]" data-search-target="ingredientElement" class="form-control d-none" value="<%= recipe %>">
-        <a type="button" class="badge text-bg-secondary me-2 text-decoration-none" data-value="<%= recipe %>" data-action="click->search#removeIngredient">
+        <a type="button" class="bg badge text-bg-secondary me-2 text-decoration-none" data-value="<%= recipe %>" data-action="click->search#removeIngredient">
           <%= recipe %> <i class="bi bi-x"></i>
         </a>
       <% end %>
