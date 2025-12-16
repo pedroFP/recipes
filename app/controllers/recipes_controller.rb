@@ -80,7 +80,6 @@ class RecipesController < ApplicationController
       params.expect(recipe: [
         :cook_time,
         :prep_time,
-        :ratings,
         :title,
         :image,
         :category,

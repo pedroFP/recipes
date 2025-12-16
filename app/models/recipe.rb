@@ -10,7 +10,6 @@ class Recipe < ApplicationRecord
 
   validates :cook_time,
             :prep_time,
-            :ratings,
             :title,
             :image,
             :category,
