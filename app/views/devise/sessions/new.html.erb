@@ -2,17 +2,14 @@
   <div class="card shadow-lg w-100" style="max-width: 450px;">
     <div class="card-body">
       <h2 class="card-title text-center mb-4">Log in</h2>
-      <%= form_for(
-            resource,
-            as: resource_name,
-            url: session_path(resource_name)
-          ) do |f| %>
+      <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <!-- Email -->
         <div class="mb-3">
           <%= f.label :email, class: "form-label" %>
           <%= f.email_field :email,
                 autofocus: true,
+                required: true,
                 autocomplete: "email",
                 class: "form-control border-warning" %>
         </div>
@@ -25,6 +22,7 @@
             </small>
           <% end %>
           <%= f.password_field :password,
+                required: true,
                 autocomplete: "new-password",
                 class: "form-control border-warning" %>
         </div>
@@ -36,7 +34,7 @@
         <% end %>
         <!-- Submit -->
         <div class="d-grid mb-3">
-          <%= f.submit "Sign up", class: "btn btn-warning text-dark fw-bold" %>
+          <%= f.submit "Log in", class: "btn btn-warning text-dark fw-bold" %>
         </div>
       <% end %>
       <!-- Devise links -->

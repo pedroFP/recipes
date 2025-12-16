@@ -26,6 +26,7 @@
           <% end %>
           <%= f.password_field :password,
                 autocomplete: "new-password",
+                required: true,
                 class: "form-control border-warning" %>
         </div>
         <!-- Password confirmation -->
@@ -33,6 +34,7 @@
           <%= f.label :password_confirmation, class: "form-label" %>
           <%= f.password_field :password_confirmation,
                 autocomplete: "new-password",
+                required: true,
                 class: "form-control border-warning" %>
         </div>
         <!-- Submit -->

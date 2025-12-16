@@ -13,10 +13,33 @@
       </ul>
       <div class="d-flex" role="search">
         <% if user_signed_in? %>
-          <%= link_to destroy_user_session_path, class: "btn", data: { turbo_method: :delete } do %>
-            <i class="bi bi-person-circle me-2"></i>
-            Sign out
-          <% end %>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle me-2"></i>
+                <%= current_user.email.split("@").first %>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                    <div class="d-flex justify-content-between">
+                      <span>Edit account</span>
+                      <i class="bi bi-pencil-square"></i>
+                    </div>
+                  <% end %>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <%= link_to destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } do %>
+                    <div class="d-flex justify-content-between">
+                      <span>Sign out</span>
+                      <i class="bi bi-person-circle"></i>
+                    </div>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+          </ul>
         <% else %>
           <%= link_to new_user_session_path, class: "btn" do %>
             <i class="bi bi-person-circle me-2"></i>

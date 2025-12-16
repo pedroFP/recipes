@@ -5,12 +5,12 @@
       <div class="col-8">
         <div class="input-group input-group-sm mb-2">
           <%= f.text_field :ingredients,
-        class: "form-control",
-        placeholder: "milk, eggs, BBQ, flour...",
-        data: {
-          "search-target": "ingredientInput",
-          action: "keydown.enter->search#addIngredient"
-        } %>
+          class: "form-control me-auto ",
+          placeholder: "milk, eggs, BBQ, flour...",
+          data: {
+            "search-target": "ingredientInput",
+            action: "keydown.enter->search#addIngredient"
+          } %>
           <button type="button" class="btn btn-secondary" data-action="search#addIngredient">
             +
           </button>
@@ -18,8 +18,14 @@
       </div>
       <div class="col-4">
         <% display = searched_recipes.any? ? "" : "d-none" %>
-        <%= f.button type: "submit", class: "btn btn-warning btn-sm #{display}", data: { "search-target": "submitButton" } do %>
+        <%= f.button type: "submit", class: "btn btn-warning btn-sm #{display} me-3", data: { "search-target": "submitButton" } do %>
           Search <i class="bi bi-search"></i>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= link_to new_recipe_path, class: "btn btn-sm btn-success" do %>
+            New recipe
+            <i class="ms-1 bi bi-plus-circle"></i>
+          <% end %>
         <% end %>
       </div>
     </div>

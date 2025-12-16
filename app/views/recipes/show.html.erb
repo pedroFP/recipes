@@ -2,8 +2,10 @@
   <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2">
     <h1 class="mb-2">
       <%= @recipe.title %>
-      <%= link_to edit_recipe_path(@recipe), class:"fs-6 text-warning" do %>
-        <i class="bi bi-pencil-square"></i>
+      <% if user_signed_in? %>
+        <%= link_to edit_recipe_path(@recipe), class:"fs-6 text-warning" do %>
+          <i class="bi bi-pencil-square"></i>
+        <% end %>
       <% end %>
     </h1>
     <%= link_to "Back", recipes_path, class: "btn btn-light mt-3" %>
