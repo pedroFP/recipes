@@ -13,7 +13,7 @@
       </ul>
       <div class="d-flex" role="search">
         <% if user_signed_in? %>
-          <%= link_to destroy_user_session_path, class: "btn", data: { method: :destroy } do %>
+          <%= link_to destroy_user_session_path, class: "btn", data: { turbo_method: :delete } do %>
             <i class="bi bi-person-circle me-2"></i>
             Sign out
           <% end %>
