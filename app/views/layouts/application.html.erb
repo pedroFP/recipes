@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Recipes App" %></title>
+    <title><%= content_for(:title) || "My Recipes" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -13,6 +13,7 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktZWdnLWZyaWVkIiB2aWV3Qm94PSIwIDAgMTYgMTYiPjxwYXRoIGQ9Ik04IDExYTMgMyAwIDEgMCAwLTYgMyAzIDAgMCAwIDAgNiIvPjxwYXRoIGQ9Ik0xMy45OTcgNS4xN2E1IDUgMCAwIDAtOC4xMDEtNC4wOUE1IDUgMCAwIDAgMS4yODAgOS4zNDJhNSA1IDAgMCAwIDguMzM2IDUuMTA5IDMuNSAzLjUgMCAwIDAgNS4yMDEtNC4wNjUgMy4wMDEgMy4wMDEgMCAwIDAtLjgyMi01LjIxNm0tMS0uMDM0YTEgMSAwIDAgMCAuNjY4Ljk3NyAyLjAwMSAyLjAwMSAwIDAgMSAuNTQ3IDMuNDc4IDEgMSAwIDAgMC0uMzQxIDEuMTEzIDIuNSAyLjUgMCAwIDEtMy43MTUgMi45MDUgMSAxIDAgMCAwLTEuMjYyLjE1MiA0IDQgMCAwIDEtNi42NzAtNC4wODcgMSAxIDAgMCAwLS4yLTEgNCA0IDAgMCAxIDMuNjkzLTYuNjEgMSAxIDAgMCAwIC44LS4yIDQgNCAwIDAgMSA2LjQ4IDMuMjczeiIvPjwvc3ZnPg==" type="image/svg+xml">
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
