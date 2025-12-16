@@ -12,9 +12,16 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       </ul>
       <div class="d-flex" role="search">
-        <%= link_to "#", class: "btn" do %>
-          <i class="bi bi-person-circle me-2"></i>
-          Sign in
+        <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, class: "btn", data: { method: :destroy } do %>
+            <i class="bi bi-person-circle me-2"></i>
+            Sign out
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class: "btn" do %>
+            <i class="bi bi-person-circle me-2"></i>
+            Sign in
+          <% end %>
         <% end %>
       </div>
     </div>
