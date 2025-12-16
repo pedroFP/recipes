@@ -2,7 +2,7 @@
   <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2">
     <h1 class="mb-2">
       <%= @recipe.title %>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && policy(@recipe).update?  %>
         <%= link_to edit_recipe_path(@recipe), class:"fs-6 text-warning" do %>
           <i class="bi bi-pencil-square"></i>
         <% end %>

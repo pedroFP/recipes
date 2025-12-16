@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
                       tsvector_column: "ingredients_tsv"
                     }
                   }
+  belongs_to :user
 
   validates :cook_time,
             :prep_time,
