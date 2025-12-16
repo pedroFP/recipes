@@ -6,11 +6,6 @@
         <%= f.text_field :title, class: "form-control", required: true %>
       </div>
       <div class="mb-3">
-        <% is_author_valid = recipe.errors.key?(:author) ? "is-invalid" : "" %>
-        <%= f.label :author, class: "form-label" %>
-        <%= f.text_field :author, required: true, class: "form-control #{is_author_valid}" %>
-      </div>
-      <div class="mb-3">
         <% is_category_valid = recipe.errors.key?(:category) ? "is-invalid" : "" %>
         <%= f.label :category, class: "form-label" %>
         <%= f.text_field :category, required: true, class: "form-control #{is_category_valid}" %>
