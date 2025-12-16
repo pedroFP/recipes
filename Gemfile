@@ -72,3 +72,5 @@ gem "bootstrap", "~> 5.3.3"
 gem "pagy", "~> 43.2"
 
 gem "devise", "~> 4.9"
+
+gem "pundit", "~> 2.5"
