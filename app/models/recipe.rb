@@ -7,6 +7,17 @@ class Recipe < ApplicationRecord
                       tsvector_column: "ingredients_tsv"
                     }
                   }
+
+  validates :cook_time,
+            :prep_time,
+            :ratings,
+            :title,
+            :image,
+            :category,
+            :author,
+            :ingredients,
+            presence: true
+  
   def total_time
     @total_time ||= prep_time + cook_time
   end
