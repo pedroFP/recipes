@@ -6,32 +6,48 @@
         <%= f.text_field :title, class: "form-control", required: true %>
       </div>
       <div class="mb-3">
+        <% is_author_valid = recipe.errors.key?(:author) ? "is-invalid" : "" %>
         <%= f.label :author, class: "form-label" %>
-        <%= f.text_field :author, class: "form-control" %>
+        <%= f.text_field :author, required: true, class: "form-control #{is_author_valid}" %>
       </div>
       <div class="mb-3">
+        <% is_category_valid = recipe.errors.key?(:category) ? "is-invalid" : "" %>
         <%= f.label :category, class: "form-label" %>
-        <%= f.text_field :category, class: "form-control" %>
+        <%= f.text_field :category, required: true, class: "form-control #{is_category_valid}" %>
       </div>
       <div class="mb-3">
+        <% is_image_valid = recipe.errors.key?(:image) ? "is-invalid" : "" %>
         <%= f.label :image, "Image URL", class: "form-label" %>
-        <%= f.text_field :image, class: "form-control" %>
+        <%= f.text_field :image, required: true, class: "form-control #{is_image_valid}" %>
       </div>
       <div class="row">
         <div class="col-md-4 mb-3">
+          <% is_prep_time_valid = recipe.errors.key?(:prep_time) ? "is-invalid" : "" %>
           <%= f.label :prep_time, "Prep Time (minutes)", class: "form-label" %>
-          <%= f.number_field :prep_time, step: 0.1, class: "form-control" %>
+          <%= f.number_field :prep_time, step: 0.1, required: true, class: "form-control #{is_prep_time_valid}" %>
         </div>
         <div class="col-md-4 mb-3">
+          <% is_cook_time_valid = recipe.errors.key?(:cook_time) ? "is-invalid" : "" %>
           <%= f.label :cook_time, "Cook Time (minutes)", class: "form-label" %>
-          <%= f.number_field :cook_time, step: 0.1, class: "form-control" %>
+          <%= f.number_field :cook_time, step: 0.1, required: true, class: "form-control #{is_cook_time_valid}" %>
         </div>
+        <% if recipe.errors.any? %>
+          <div style="color: red">
+            <p><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</p>
+            <ul>
+              <% recipe.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="col-md-6 col-lg-6 col-sm-12">
       <div class="mb-3" >
         <div id="ingredients-fields" data-ingredients-target="container">
           <h3>Ingredients</h3>
+          <% is_cook_time_valid = recipe.errors.key?(:cook_time) ? "is-invalid" : "" %>
           <% recipe.ingredients.each_with_index do |ingredient, index| %>
             <div class="input-group mb-2" data-ingredients-target="field">
               <%= f.text_field :ingredients, value: ingredient, name: "recipe[ingredients][]", class: "form-control", placeholder: "Ingredient" %>
